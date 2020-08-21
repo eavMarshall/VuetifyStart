@@ -14,6 +14,9 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
+                        options: {
+                            esModule: false
+                        }
                     },
                 ],
             },
@@ -65,6 +68,7 @@ module.exports = {
         alias: {
             '@root': path.resolve(__dirname, 'src/'),
             '@components': path.resolve(__dirname, 'src/components/'),
+            '@plugins': path.resolve(__dirname, 'src/plugins/'),
             'vue$': 'vue/dist/vue.esm.js',
         },
     },
