@@ -3,6 +3,7 @@ module.exports = {
     moduleNameMapper: {
         "^@root(.*)$": "<rootDir>/src$1",
         "^@components(.*)$": "<rootDir>/src/components$1",
-        "^@plugins(.*)$": "<rootDir>/src/plugins"
+        "^@plugins(.*)$": "<rootDir>/src/plugins",
+        "^@appPages(.*)$": "<rootDir>/src/pages/app"
     }
 }

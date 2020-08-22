@@ -1,38 +1,147 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" :src="logUrl"/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="inspire">
+
+    <v-app-bar
+        app
+        clipped-right
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>{{!isDraw ? title : ''}}</v-toolbar-title>
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-navigation-drawer
+        v-model="drawer"
+        app
+    >
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="title">
+            {{isDraw ? title : ''}}
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            Webpack, Vue, Vueify and more
+          </v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-divider></v-divider>
+      <v-list
+          nav
+      >
+        <v-list-group
+            prepend-icon="mdi-book-open-page-variant"
+            value="true"
+            v-model="group1Active"
+        >
+          <template v-slot:activator>
+            <v-list-item-title>Pages 1 - 3</v-list-item-title>
+          </template>
+          <v-list-item
+              v-for="item in navPage1to3Item"
+              :key="item.title"
+              link
+              :to="item.to"
+          >
+            <v-list-item-content class="sub-menu-icon">
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+
+        <v-list-group
+            prepend-icon="mdi-book-open-page-variant"
+            value="false"
+            v-model="group2Active"
+        >
+          <template v-slot:activator>
+            <v-list-item-title>Pages 4 - 5</v-list-item-title>
+          </template>
+          <v-list-item
+              v-for="item in navPage4to5Item"
+              :key="item.title"
+              link
+              :to="item.to"
+              app
+          >
+            <v-list-item-icon>
+              <v-icon v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-main>
+      <v-container
+          class="fill-height"
+          fluid
+      >
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+
+    <v-footer
+        app
+    >
+      <span>Vuetify</span>
+      <v-spacer></v-spacer>
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from '@components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  props: {
+    source: String,
   },
+  data: () => ({
+    title: 'Vueifiy starter',
+    group1Active: true,
+    group2Active: false,
+    drawer: null,
+    drawerRight: null,
+    right: false,
+    left: false,
+    navPage1to3Item: [
+      { title: 'Page1', icon: 'mdi-view-dashboard', to:"/home/page1" },
+      { title: 'Page2', icon: 'mdi-image', to:"/home/page2" },
+      { title: 'Page3', icon: 'mdi-help-box', to:"/home/page3" },
+    ],
+    navPage4to5Item: [
+      { title: 'Page4', icon: 'mdi-coffee', to:"/home/page4" },
+      { title: 'Page5', icon: 'mdi-google-controller', to:"/home/page5" },
+    ],
+  }),
   computed: {
-    logUrl () {
-      return require('./assets/logo.png')
-    }
-  },
-  data() {
-    return [
-
-    ]
+    isDraw() { return this.drawer; },
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  .sub-menu-icon {
+    padding-left: 56px;
+  };
+  .v-btn .v-btn__content .v-icon {
+    color: inherit;
+  };
 </style>
