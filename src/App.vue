@@ -83,10 +83,7 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-container
-          class="fill-height"
-          fluid
-      >
+      <v-container>
         <router-view></router-view>
       </v-container>
     </v-main>

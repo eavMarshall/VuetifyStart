@@ -1,10 +1,19 @@
 <template>
-  <p>Page4</p>
+  <div>
+    <p>Page4</p>
+    <img alt="Vue logo" :src="require('@root/assets/logo.png')"/>
+    <HelloWorld></HelloWorld>
+  </div>
 </template>
 
 <script>
+import HelloWorld from "@components/HelloWorld";
+
 export default {
-  name: "Page4"
+  name: "Page4",
+  components: {
+    HelloWorld
+  },
 }
 </script>
 

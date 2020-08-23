@@ -1,17 +1,18 @@
 <template>
   <div>
     <p>Page1</p>
-    <img alt="Vue logo" :src="logUrl"/>
+    <img alt="Vue logo" :src="require('@root/assets/logo.png')"/>
+    <HelloWorld></HelloWorld>
   </div>
 </template>
 
 <script>
+import HelloWorld from "@components/HelloWorld";
+
 export default {
   name: "Page1",
-  computed: {
-    logUrl () {
-      return require('@root/assets/logo.png')
-    }
+  components: {
+    HelloWorld
   },
 }
 </script>
