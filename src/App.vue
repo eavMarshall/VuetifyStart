@@ -110,7 +110,7 @@ export default {
     source: String,
   },
   data: () => ({
-    title: 'Vueifiy starter',
+    title: 'Vuetifyjs starter',
     listGroups: [
       {
         name: 'page 1-3',
