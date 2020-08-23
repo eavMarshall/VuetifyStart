@@ -6,6 +6,9 @@ Vue.use(Vuetify);
 
 const opts = {
     theme: {
+        options: {
+            customProperties: true
+        },
         themes: {
             light: {
                 primary: '#1976D2',

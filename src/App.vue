@@ -102,6 +102,8 @@
 </template>
 
 <script>
+import '@root/sass/main.scss';
+
 export default {
   name: "App",
   props: {
@@ -158,11 +160,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped style="scss">
   .sub-menu-icon {
     padding-left: 56px;
-  };
+  }
   .v-application a {
-    color: #1976d2!important;
-  };
+    color: var(--v-primary-base)!important;
+  }
 </style>
