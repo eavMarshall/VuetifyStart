@@ -58,10 +58,6 @@
                 link
                 :to="item.to"
             >
-              <v-list-item-icon>
-                <v-icon v-text="item.icon"></v-icon>
-              </v-list-item-icon>
-
               <v-list-item-content class="sub-menu-icon">
                 <v-list-item-title>{{ item.title }}</v-list-item-title>
               </v-list-item-content>
@@ -78,7 +74,7 @@
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
 
-            <v-list-item-content class="sub-menu-icon">
+            <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -165,5 +161,8 @@ export default {
 <style scoped>
   .sub-menu-icon {
     padding-left: 56px;
+  };
+  .v-application a {
+    color: #1976d2!important;
   };
 </style>
