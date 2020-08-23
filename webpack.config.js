@@ -82,6 +82,8 @@ module.exports = {
             '@plugins': path.resolve(__dirname, 'src/plugins/'),
             '@appPages': path.resolve(__dirname, 'src/pages/app/'),
             '@assets': path.resolve(__dirname, 'src/assets/'),
+            '@store': path.resolve(__dirname, 'src/store/'),
+            '@modules': path.resolve(__dirname, 'src/store/modules'),
             'vue$': 'vue/dist/vue.esm.js',
         },
     },
