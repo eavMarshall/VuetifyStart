@@ -8,7 +8,7 @@ const router = new VueRouter({
     base: '/',
     routes: [
         {
-            path: '/home', component: () => import("@root/pages/Home"),
+            path: '/app', component: () => import("@root/pages/RouterRoot"),
             children: [
                 { path: 'page1', component: () => import("@appPages/Page1") },
                 { path: 'page2', component: () => import("@appPages/Page2") },
@@ -16,9 +16,10 @@ const router = new VueRouter({
                 { path: 'page4', component: () => import("@appPages/Page4") },
                 { path: 'page5', component: () => import("@appPages/Page5") },
                 { path: 'page6', component: () => import("@appPages/Page6") },
+                { path: 'settings', component: () => import("@appPages/Settings") },
             ]
         },
-        { path: '*', redirect: '/home/page1' },
+        { path: '*', redirect: '/app/page1' },
     ],
 });
 

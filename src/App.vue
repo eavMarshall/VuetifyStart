@@ -113,30 +113,31 @@ export default {
     title: 'Vueifiy starter',
     listGroups: [
       {
-        name: 'page1-3',
+        name: 'page 1-3',
         grouped: true,
         isOpen: true,
         items: [
-          { title: 'Page1', icon: 'mdi-view-dashboard', to:"/home/page1" },
-          { title: 'Page2', icon: 'mdi-image', to:"/home/page2" },
-          { title: 'Page3', icon: 'mdi-help-box', to:"/home/page3" },
+          { title: 'Page1', icon: 'mdi-view-dashboard', to:"/app/page1" },
+          { title: 'Page2', icon: 'mdi-image', to:"/app/page2" },
+          { title: 'Page3', icon: 'mdi-help-box', to:"/app/page3" },
         ],
       },
       {
-        name: 'page4-5',
+        name: 'page 4-5',
         grouped: true,
         isOpen: false,
         items: [
-          { title: 'Page4', icon: 'mdi-coffee', to:"/home/page4" },
-          { title: 'Page5', icon: 'mdi-google-controller', to:"/home/page5" },
+          { title: 'Page4', icon: 'mdi-coffee', to:"/app/page4" },
+          { title: 'Page5', icon: 'mdi-google-controller', to:"/app/page5" },
         ],
       },
       {
-        name: 'page6-',
+        name: 'page 6-?',
         grouped: false,
         isOpen: false,
         items: [
-          { title: 'Page6', icon: 'mdi-coffee', to:"/home/page6" },
+          { title: 'Page6', icon: 'mdi-coffee', to:"/app/page6" },
+          { title: 'Settings', icon: 'mdi-wrench', to:"/app/settings" },
         ],
       }
     ],
@@ -144,15 +145,6 @@ export default {
     drawerRight: null,
     right: false,
     left: false,
-    navPage1to3Item: [
-      { title: 'Page1', icon: 'mdi-view-dashboard', to:"/home/page1" },
-      { title: 'Page2', icon: 'mdi-image', to:"/home/page2" },
-      { title: 'Page3', icon: 'mdi-help-box', to:"/home/page3" },
-    ],
-    navPage4to5Item: [
-      { title: 'Page4', icon: 'mdi-coffee', to:"/home/page4" },
-      { title: 'Page5', icon: 'mdi-google-controller', to:"/home/page5" },
-    ],
   }),
   computed: {
     isDraw() { return this.drawer; },
