@@ -41,50 +41,48 @@
       <v-list
           nav
       >
-        <v-list-group
-            prepend-icon="mdi-book-open-page-variant"
-            value="true"
-            v-model="group1Active"
-        >
-          <template v-slot:activator>
-            <v-list-item-title>Pages 1 - 3</v-list-item-title>
-          </template>
-          <v-list-item
-              v-for="item in navPage1to3Item"
-              :key="item.title"
-              link
-              :to="item.to"
+        <div v-for="menuGroup in listGroups">
+          <v-list-group
+              v-if="menuGroup.grouped"
+              :key="menuGroup.name"
+              prepend-icon="mdi-book-open-page-variant"
+              value="false"
+              v-model="menuGroup.isOpen"
           >
-            <v-list-item-content class="sub-menu-icon">
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-group>
+            <template v-slot:activator>
+              <v-list-item-title>{{menuGroup.name}}</v-list-item-title>
+            </template>
+            <v-list-item
+                v-for="item in menuGroup.items"
+                :key="item.title"
+                link
+                :to="item.to"
+            >
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
 
-        <v-list-group
-            prepend-icon="mdi-book-open-page-variant"
-            value="false"
-            v-model="group2Active"
-        >
-          <template v-slot:activator>
-            <v-list-item-title>Pages 4 - 5</v-list-item-title>
-          </template>
+              <v-list-item-content class="sub-menu-icon">
+                <v-list-item-title>{{ item.title }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
           <v-list-item
-              v-for="item in navPage4to5Item"
+              v-if="!menuGroup.grouped"
+              v-for="item in menuGroup.items"
               :key="item.title"
               link
               :to="item.to"
-              app
           >
             <v-list-item-icon>
               <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
 
-            <v-list-item-content>
+            <v-list-item-content class="sub-menu-icon">
               <v-list-item-title>{{ item.title }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-        </v-list-group>
+        </div>
       </v-list>
     </v-navigation-drawer>
 
@@ -115,8 +113,35 @@ export default {
   },
   data: () => ({
     title: 'Vueifiy starter',
-    group1Active: true,
-    group2Active: false,
+    listGroups: [
+      {
+        name: 'page1-3',
+        grouped: true,
+        isOpen: true,
+        items: [
+          { title: 'Page1', icon: 'mdi-view-dashboard', to:"/home/page1" },
+          { title: 'Page2', icon: 'mdi-image', to:"/home/page2" },
+          { title: 'Page3', icon: 'mdi-help-box', to:"/home/page3" },
+        ],
+      },
+      {
+        name: 'page4-5',
+        grouped: true,
+        isOpen: false,
+        items: [
+          { title: 'Page4', icon: 'mdi-coffee', to:"/home/page4" },
+          { title: 'Page5', icon: 'mdi-google-controller', to:"/home/page5" },
+        ],
+      },
+      {
+        name: 'page6-',
+        grouped: false,
+        isOpen: false,
+        items: [
+          { title: 'Page6', icon: 'mdi-coffee', to:"/home/page6" },
+        ],
+      }
+    ],
     drawer: null,
     drawerRight: null,
     right: false,
@@ -140,8 +165,5 @@ export default {
 <style scoped>
   .sub-menu-icon {
     padding-left: 56px;
-  };
-  .v-btn .v-btn__content .v-icon {
-    color: inherit;
   };
 </style>

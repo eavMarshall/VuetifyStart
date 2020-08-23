@@ -1,11 +1,18 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const APP_NAME = 'Vuetifiy Starter';
 
 module.exports = {
-    entry: './src/main.js',
+    entry: './src/index.js',
     output: {
-        path: path.join(__dirname, '/public'),
+        path: path.resolve(__dirname, 'public/'),
         publicPath: '/'
+    },
+    devtool: 'source-map',
+    devServer:{
+        contentBase: 'public'
     },
     module: {
         rules: [
@@ -24,7 +31,8 @@ module.exports = {
                 test: /\.js$/,
                 exclude: [
                     /\bcore-js\b/,
-                    /\bwebpack\/buildin\b/
+                    /\bwebpack\/buildin\b/,
+                    /(node_modules|bower_components)/
                 ],
                 use: {
                     loader: 'babel-loader',
@@ -62,6 +70,9 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            title: APP_NAME,
+        })
     ],
     resolve: {
         extensions: ['.js', '.vue'],

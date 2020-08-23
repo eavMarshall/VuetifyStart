@@ -1,3 +1,4 @@
+import 'core-js/es/symbol';
 import Vue from 'vue';
 import router from '@root/router';
 import vuetify from '@plugins/vuetify';

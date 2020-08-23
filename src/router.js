@@ -15,6 +15,7 @@ const router = new VueRouter({
                 { path: 'page3', component: () => import("@appPages/Page3") },
                 { path: 'page4', component: () => import("@appPages/Page4") },
                 { path: 'page5', component: () => import("@appPages/Page5") },
+                { path: 'page6', component: () => import("@appPages/Page6") },
             ]
         },
         { path: '*', redirect: '/home/page1' },

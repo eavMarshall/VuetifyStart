@@ -15,6 +15,7 @@ $ npm run start
 $ npm run test-watch
 $ npm run build
 $ npm run test
+$ npm run hot
 ```
 
 #### npm run start
@@ -28,4 +29,7 @@ Production build, use this in your build pipeline
 
 #### npm run test
 One off run of the jest unit tests, use this in your build pipeline
+
+#### npm run hot
+Hot reload found at http://localhost:8080/
 

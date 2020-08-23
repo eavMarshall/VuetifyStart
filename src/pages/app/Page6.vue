@@ -1,10 +1,10 @@
 <template>
-  <p>Page2 update</p>
+  <p>Page 6</p>
 </template>
 
 <script>
 export default {
-  name: "Page2"
+  name: "Page6"
 }
 </script>
 
