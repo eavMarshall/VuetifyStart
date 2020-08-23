@@ -4,6 +4,7 @@ module.exports = {
         "^@root(.*)$": "<rootDir>/src$1",
         "^@components(.*)$": "<rootDir>/src/components$1",
         "^@plugins(.*)$": "<rootDir>/src/plugins",
-        "^@appPages(.*)$": "<rootDir>/src/pages/app"
+        "^@appPages(.*)$": "<rootDir>/src/pages/app",
+        "^@assets(.*)$": "<rootDir>/src/assets"
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Page4</p>
-    <img alt="Vue logo" :src="require('@root/assets/logo.png')"/>
+    <img alt="Vue logo" :src="require('@assets/logo.png')"/>
     <HelloWorld></HelloWorld>
   </div>
 </template>
