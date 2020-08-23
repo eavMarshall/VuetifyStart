@@ -3,10 +3,12 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import Page from '@modules/Page';
+const modules = {};
+
+const importAll = r => r.keys().forEach(key => modules[key.split('/').pop().split('.')[0]] = r(key).default);
+
+importAll(require.context('./modules/', true, /\.js$/i)); //dynamically import all modules
 
 export default new Vuex.Store({
-    modules: {
-        Page: Page,
-    },
+    modules: modules, // all modules in the ./modules folder
 });
